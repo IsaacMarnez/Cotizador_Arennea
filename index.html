@@ -237,6 +237,32 @@
       #financialSectionWrapper tr{break-inside:avoid!important;page-break-inside:avoid!important}
       #financialSectionWrapper th,#financialSectionWrapper td{padding:4px 7px!important;font-size:9px!important}
     }
+
+    /* V7: predictable printed pages without stranded headings or broken bank cards */
+    @media print {
+      @page { size:A4; margin:14mm 13mm 15mm 13mm; }
+      html,body { overflow:visible!important; }
+      .layout,.preview-body,.sheet,.content { overflow:visible!important; }
+      .sheet { padding:0!important; }
+      .section { border:0!important; padding:0!important; margin:10px 0 0!important; overflow:visible!important; }
+      .section-title { break-after:avoid!important; page-break-after:avoid!important; }
+      #financialSectionWrapper, #financialSection, #financialSection .table-wrap {
+        border:0!important; overflow:visible!important; box-shadow:none!important;
+        break-inside:auto!important; page-break-inside:auto!important;
+      }
+      #financialSectionWrapper table { width:100%;border-collapse:collapse!important; }
+      #financialSectionWrapper thead { display:table-header-group!important; }
+      #financialSectionWrapper tr { break-inside:avoid!important;page-break-inside:avoid!important; }
+      #financialSectionWrapper th,#financialSectionWrapper td { padding:4px 6px!important; }
+      #financialSectionWrapper .section-title { margin-bottom:9px!important; }
+      /* Either place all bank data together or begin it on the next clean sheet. */
+      .bank-section { break-inside:avoid!important; page-break-inside:avoid!important; }
+      .bank-grid { break-inside:avoid!important; page-break-inside:avoid!important; }
+      .bank-card { break-inside:avoid!important; page-break-inside:avoid!important; }
+      .bank-table tr { break-inside:avoid!important; }
+      .footer-strip { break-inside:avoid!important; }
+      .image-card { break-inside:avoid!important; }
+    }
   </style>
 </head>
 <body>
@@ -388,7 +414,7 @@
             </div>
           </section>
 
-          <section class="section">
+          <section class="section bank-section">
             <h3 class="section-title">Referencias bancarias para pago</h3>
             <div class="bank-grid" id="bankGrid"></div>
           </section>
