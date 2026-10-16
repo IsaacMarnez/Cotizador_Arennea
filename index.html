@@ -263,6 +263,27 @@
       .footer-strip { break-inside:avoid!important; }
       .image-card { break-inside:avoid!important; }
     }
+
+    /* V8: pie de página editorial. El encabezado y pie predeterminados de Chrome
+       deben desactivarse en el diálogo de impresión; no son HTML de este sitio. */
+    @media print {
+      @page {
+        size: A4;
+        margin: 14mm 13mm 17mm 13mm;
+        @bottom-left {
+          content: "Arennea · Propuesta económica preliminar";
+          color: #53745a;
+          font-family: Arial, sans-serif;
+          font-size: 8pt;
+        }
+        @bottom-right {
+          content: counter(page) " / " counter(pages);
+          color: #53745a;
+          font-family: Arial, sans-serif;
+          font-size: 8pt;
+        }
+      }
+    }
   </style>
 </head>
 <body>
@@ -340,7 +361,7 @@
           <button class="btn-primary" type="button" onclick="window.print()">Imprimir / Guardar PDF</button>
           <button class="btn-secondary" type="button" onclick="limpiarDatos()">Limpiar</button>
         </div>
-        <p class="small-note">Para que el PDF salga a color, activa <strong>“gráficos de fondo”</strong> y, si te aparece la URL o la fecha del navegador, desactiva <strong>“encabezados y pies de página”</strong> en la ventana de impresión.</p>
+        <p class="small-note">Para que el PDF salga a color, activa <strong>“Gráficos de fondo”</strong>. Para eliminar la URL, la fecha y el título que coloca el navegador, desactiva <strong>“Encabezados y pies de página”</strong> en Más configuraciones de impresión. El diseño incluye un pie de página propio con frase y número de página en navegadores compatibles.</p>
       </div>
     </aside>
 
