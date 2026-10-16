@@ -7,35 +7,38 @@
   <style>
     :root{
       --green:#356f3b;
-      --green-dark:#274f2c;
+      --green-dark:#234829;
       --green-soft:#eaf4eb;
-      --green-soft-2:#f5faf6;
-      --mint:#cfe9d3;
-      --mint-2:#ecf6ed;
-      --gold:#b89b54;
-      --ink:#203124;
-      --muted:#6d7d70;
-      --border:#d8e6da;
-      --shadow:0 16px 38px rgba(24,54,29,.09);
+      --green-soft-2:#f6faf7;
+      --mint:#d7edd8;
+      --gold:#b99852;
+      --ink:#223126;
+      --muted:#667868;
+      --line:#d9e5db;
+      --paper:#ffffff;
+      --bg:#f3f7f4;
+      --shadow:0 14px 32px rgba(29,61,34,.08);
       --serif: Georgia, "Times New Roman", serif;
       --sans: Inter, Arial, Helvetica, sans-serif;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
-    body{background:#f4f7f4;color:var(--ink);font-family:var(--sans)}
-    img{max-width:100%;display:block}
-    .topbar{background:linear-gradient(135deg,var(--green),#2e6034);color:#fff;padding:22px 24px}
-    .topbar-wrap{max-width:1380px;margin:0 auto;display:flex;justify-content:space-between;gap:18px;align-items:center}
-    .brand{display:flex;gap:14px;align-items:center}
-    .brand img{width:104px;background:#fff;border-radius:10px;padding:6px}
-    .brand h1{margin:0;font-size:28px;line-height:1.05}
-    .brand p{margin:5px 0 0;font-size:14px;color:#d7e7da}
-    .top-note{max-width:430px;text-align:right;font-size:13px;line-height:1.55;color:#dbe8dd}
+    body{font-family:var(--sans);background:var(--bg);color:var(--ink)}
+    img{display:block;max-width:100%}
+
+    .topbar{background:linear-gradient(135deg,var(--green),#2d5f33);color:#fff;padding:22px 24px}
+    .topbar-wrap{max-width:1380px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:18px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{width:104px;background:#fff;border-radius:12px;padding:6px}
+    .brand h1{margin:0;font-size:28px;line-height:1.03}
+    .brand p{margin:5px 0 0;color:#dceadd;font-size:14px}
+    .top-note{max-width:430px;text-align:right;color:#dceadd;font-size:13px;line-height:1.55}
 
     .layout{max-width:1380px;margin:24px auto;padding:0 18px 34px;display:grid;grid-template-columns:420px minmax(0,1fr);gap:20px;align-items:start}
-    .panel{background:#fff;border:1px solid var(--border);border-radius:24px;box-shadow:var(--shadow)}
+    .panel{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}
+
     .editor{position:static;overflow:hidden}
-    .editor-head{padding:22px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#f8fbf9,#eef6ef)}
+    .editor-head{padding:22px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#f8fbf9,#edf5ee)}
     .eyebrow{display:inline-block;padding:5px 10px;border-radius:999px;background:#dcefe0;color:var(--green);font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
     .editor-head h2,.preview-head h2{margin:10px 0 6px;font-size:23px;line-height:1.1}
     .editor-head p,.preview-head p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
@@ -44,16 +47,16 @@
     .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
     .field{display:flex;flex-direction:column;gap:6px}
     .full{grid-column:1/-1}
-    label{font-size:12px;font-weight:700;color:#506655}
+    label{font-size:12px;font-weight:700;color:#516657}
     input,select,textarea{width:100%;border:1px solid #cad7cc;border-radius:12px;padding:12px 13px;background:#fff;color:var(--ink);font:inherit;font-size:14px;transition:.18s border,.18s box-shadow}
     textarea{min-height:82px;resize:vertical}
-    input[readonly]{background:#f4f8f4;color:#506655}
-    input:focus,select:focus,textarea:focus{outline:none;border-color:#7eb288;box-shadow:0 0 0 4px rgba(126,178,136,.16)}
+    input[readonly]{background:#f5f8f5;color:#516657}
+    input:focus,select:focus,textarea:focus{outline:none;border-color:#7db288;box-shadow:0 0 0 4px rgba(126,178,136,.16)}
     .hint{margin:0;font-size:12px;color:var(--muted);line-height:1.45}
-    .toggle{display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid var(--border);border-radius:14px;background:#f7faf7}
-    .toggle input{width:18px;height:18px;accent-color:var(--green)}
+    .toggle{display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#f7faf7}
+    .toggle input{width:18px;height:18px;accent-color:var(--green);margin-top:2px}
     .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-    .badge{display:inline-flex;padding:7px 10px;border-radius:999px;background:#f0f6f0;border:1px solid var(--border);font-size:12px;color:#4d6452}
+    .badge{display:inline-flex;padding:7px 10px;border-radius:999px;background:#f0f6f0;border:1px solid var(--line);font-size:12px;color:#4d6452}
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
     button{border:0;border-radius:12px;padding:12px 16px;font:inherit;font-weight:800;cursor:pointer;transition:transform .18s ease, opacity .18s ease}
     button:hover{transform:translateY(-1px)}
@@ -62,96 +65,126 @@
     .small-note{margin-top:12px;font-size:12px;color:#67796a;line-height:1.6}
 
     .preview{overflow:visible}
-    .preview-head{padding:18px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
+    .preview-head{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:18px;align-items:flex-start}
     .preview-body{padding:18px;background:#f7faf7}
-    .image-strip{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
-    .image-card{background:#fff;border:1px solid var(--border);border-radius:22px;overflow:hidden;box-shadow:0 8px 22px rgba(22,48,26,.05)}
-    .image-card img{width:100%;height:235px;object-fit:cover;object-position:center}
 
-    .summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
-    .metric{background:#fff;border:1px solid var(--border);border-radius:18px;padding:15px;box-shadow:0 8px 18px rgba(24,52,29,.04)}
-    .metric span{display:block;font-size:12px;color:#627565;margin-bottom:8px}
-    .metric strong{display:block;font-size:24px;line-height:1.1;color:#1f3423}
-    .metric.highlight{background:linear-gradient(180deg,#f5fbf6,#e6f3e8)}
+    .sheet{background:#fff;border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);overflow:hidden}
+    .sheet-header{background:linear-gradient(135deg,var(--green),#2d5f33);color:#fff;padding:20px 22px 18px;display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:center}
+    .sheet-brand{display:flex;gap:14px;align-items:center}
+    .sheet-brand .logo-wrap{background:#fff;border-radius:14px;padding:8px 10px}
+    .sheet-brand img{width:130px}
+    .sheet-title{margin:0;font-family:var(--serif);font-size:34px;line-height:1}
+    .sheet-sub{margin:8px 0 0;color:#dceadd;font-size:14px;line-height:1.55;max-width:540px}
+    .sheet-summary{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .summary-box{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:12px 14px;backdrop-filter: blur(2px)}
+    .summary-box span{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#d7ead9;margin-bottom:6px;font-weight:700}
+    .summary-box strong{font-size:16px;line-height:1.3}
 
-    .sheet{background:#fff;border:1px solid var(--border);border-radius:24px;padding:24px;box-shadow:var(--shadow)}
-    .quote-header{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;border-bottom:1px solid #ebf1ec;padding-bottom:18px;margin-bottom:18px}
-    .quote-title{margin:0;font-family:var(--serif);font-size:30px;color:var(--green-dark);line-height:1}
-    .quote-subline{margin:8px 0 0;font-size:14px;color:#5d6f60;line-height:1.6;max-width:580px}
-    .folio{min-width:240px;background:#f4f8f4;border:1px solid var(--border);border-radius:18px;padding:14px 16px}
-    .folio small{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#627565;font-weight:800}
-    .folio strong{display:block;margin-top:6px;font-size:18px}
-    .folio span{display:block;margin-top:6px;color:#5f7062;font-size:13px}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:18px}
+    .hero-card{position:relative;border-radius:22px;overflow:hidden;min-height:220px;background:#dce7dc;border:1px solid var(--line)}
+    .hero-card img{width:100%;height:100%;object-fit:cover;object-position:center}
+    .hero-label{position:absolute;left:14px;bottom:14px;background:rgba(35,72,41,.85);color:#fff;padding:8px 12px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.02em}
 
-    .section-title{margin:22px 0 12px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--green)}
-    .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px}
-    .detail{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #edf2ed}
-    .detail .label{font-size:13px;color:#607362}
+    .content{padding:0 18px 18px}
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
+    .metric{background:var(--green-soft-2);border:1px solid var(--line);border-radius:18px;padding:14px 15px}
+    .metric span{display:block;font-size:12px;color:#5f7362;margin-bottom:8px}
+    .metric strong{display:block;font-size:24px;line-height:1.1;color:#213325}
+    .metric.highlight{background:linear-gradient(180deg,#e9f5eb,#dceddf)}
+
+    .section{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;margin-bottom:14px}
+    .section-title{margin:0 0 12px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--green)}
+    .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+    .detail{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #edf2ed;padding:8px 0}
+    .detail .label{font-size:13px;color:#617463}
     .detail strong{font-size:14px;text-align:right}
 
-    .info-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:18px}
-    .card{background:#f8fbf8;border:1px solid var(--border);border-radius:18px;padding:16px}
-    .plan-ribbon{display:inline-block;padding:9px 14px;border-radius:999px;background:var(--mint);font-family:var(--serif);font-style:italic;font-size:18px;font-weight:700;color:#28462c}
-    .card p{margin:8px 0 0;font-size:13px;color:#57685a;line-height:1.6}
+    .two-col{display:grid;grid-template-columns:1.05fr .95fr;gap:14px}
+    .plan-card,.note-card{background:var(--green-soft-2);border:1px solid var(--line);border-radius:18px;padding:16px;height:100%}
+    .plan-ribbon{display:inline-block;padding:9px 14px;border-radius:999px;background:var(--mint);color:#26452a;font-size:18px;font-family:var(--serif);font-style:italic;font-weight:700}
+    .plan-card p,.note-card p{margin:10px 0 0;font-size:13px;color:#57685a;line-height:1.65}
 
-    .bank-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
-    .bank-card{background:#f8fbf8;border:1px solid var(--border);border-radius:20px;padding:16px}
-    .bank-header{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
-    .bank-logo{display:inline-flex;align-items:center;justify-content:center;min-width:146px;height:50px;border-radius:14px;padding:0 14px;font-size:21px;font-weight:900;color:#fff}
-    .banregio{background:#ff6b00}
-    .banorte{background:#df2020}
-    .bank-mini{font-size:12px;color:#5e6f61}
-    .bank-table{width:100%;border-collapse:collapse;margin-top:12px}
-    .bank-table td{padding:7px 2px;border-bottom:1px solid #e6eee7;font-size:13px;vertical-align:top}
-    .bank-table td:first-child{width:128px;color:#617463;font-weight:700}
-    .bank-example{margin-top:12px;padding:11px 12px;background:#fff;border:1px dashed #a8beaa;border-radius:14px;font-size:13px;color:#2b432f}
+    .bank-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .bank-card{background:var(--green-soft-2);border:1px solid var(--line);border-radius:20px;padding:16px}
+    .bank-head{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+    .bank-logo{display:inline-flex;align-items:center;justify-content:center;min-width:146px;height:48px;border-radius:14px;padding:0 14px;font-size:21px;font-weight:900;color:#fff}
+    .banregio{background:#ff6b00}.banorte{background:#df2020}
+    .bank-mini{font-size:12px;color:#5e7061}
+    .bank-table{width:100%;border-collapse:collapse}
+    .bank-table td{padding:7px 2px;border-bottom:1px solid #e4ede5;font-size:13px;vertical-align:top}
+    .bank-table td:first-child{width:120px;color:#617463;font-weight:700}
+    .bank-example{margin-top:12px;padding:10px 12px;background:#fff;border:1px dashed #a8beaa;border-radius:14px;font-size:13px;color:#2a4330}
     .pay-badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
-    .pay-badge{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:8px 11px;border-radius:12px;background:#fff;border:1px solid #dce8dd;font-size:11px;font-weight:900;letter-spacing:.02em;min-width:72px}
+    .pay-badge{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:7px 10px;border-radius:12px;background:#fff;border:1px solid #dbe7dc;font-size:11px;font-weight:900;letter-spacing:.02em;min-width:68px}
     .visa{color:#194e9f}.mc{color:#d45100}.amex{color:#0a78ad}.seven{color:#0b8a52}.clip{color:#f37121}.spei{color:#2d6a35}.window{color:#414d41}
 
-    .financial{margin-top:22px}
-    .table-wrap{border:1px solid var(--border);border-radius:20px;background:#fff;overflow-x:auto;overflow-y:visible}
+    .financial-section{margin-top:14px}
+    .table-wrap{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}
     table{width:100%;border-collapse:collapse}
     th,td{padding:11px 12px;border-bottom:1px solid #edf2ed;font-size:13px;vertical-align:top}
-    th{background:#e9f3eb;color:#2f5935;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+    th{background:#e8f3ea;color:#315937;text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.04em}
     td.amount,th.amount{text-align:right}
     tbody tr:nth-child(odd) td{background:#fcfefd}
     tbody tr.month-special td{background:#eef7f0}
-    tbody tr.total-row td{background:#dff0e3;font-weight:800;color:#24472a}
-    tbody tr.adjust-row td{background:#fff9ef;color:#6b5a34}
+    tbody tr.adjust-row td{background:#fff8ed;color:#6a5933}
+    tbody tr.total-row td{background:#dff0e3;color:#224528;font-weight:800}
 
-    .footer-note{margin-top:18px;padding:16px 18px;border-left:4px solid var(--gold);background:#fff9ef;border-radius:16px;font-size:13px;line-height:1.65;color:#61553b}
-    .stamp{margin-top:18px;display:flex;justify-content:space-between;gap:18px;align-items:flex-end;flex-wrap:wrap}
-    .stamp .meta{font-size:12px;color:#687b6b;line-height:1.65}
+    .footer-strip{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:14px}
+    .footer-note,.meta-card{background:#fff9ef;border:1px solid #ead7ae;border-radius:18px;padding:16px}
+    .footer-note{border-left:5px solid var(--gold)}
+    .footer-note p,.meta-card p{margin:0;font-size:13px;line-height:1.65;color:#64583c}
+    .meta-card{background:#f6faf7;border-color:var(--line)}
+    .meta-card p{color:#5d7061}
+
     .hidden-print{display:block}
 
     @media (max-width:1160px){
       .layout{grid-template-columns:1fr}
-      .editor{position:static}
-      .summary-grid{grid-template-columns:repeat(2,1fr)}
-      .info-grid,.bank-grid{grid-template-columns:1fr}
+      .sheet-header,.two-col,.bank-grid,.footer-strip{grid-template-columns:1fr}
+      .metrics{grid-template-columns:repeat(2,1fr)}
     }
     @media (max-width:760px){
-      .topbar-wrap,.quote-header,.preview-head,.stamp{flex-direction:column;align-items:flex-start}
+      .topbar-wrap,.preview-head{flex-direction:column;align-items:flex-start}
       .top-note{text-align:left}
-      .form-grid,.detail-grid,.summary-grid,.image-strip{grid-template-columns:1fr}
-      .preview-body{padding:14px}
-      .sheet{padding:18px}
-      .image-card img{height:210px}
-      .quote-title{font-size:26px}
+      .form-grid,.hero-grid,.detail-grid,.metrics{grid-template-columns:1fr}
+      .sheet-brand{align-items:flex-start;flex-direction:column}
+      .sheet-title{font-size:28px}
+      .sheet-summary{grid-template-columns:1fr}
     }
+
     @media print{
-      body{background:#fff}
+      :root{color-scheme:light}
+      *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+      html,body{background:#fff}
+      body{margin:0}
       .topbar,.editor,.preview-head,.hidden-print{display:none !important}
-      .layout{display:block;max-width:100%;margin:0;padding:0}
-      .panel,.sheet,.image-card,.metric,.card,.bank-card,.table-wrap{box-shadow:none !important;border-color:#d9d9d9 !important}
-      .preview{border:none !important}
+      .layout{display:block;max-width:none;margin:0;padding:0}
+      .panel,.sheet,.section,.hero-card,.metric,.bank-card,.plan-card,.note-card,.table-wrap,.footer-note,.meta-card{box-shadow:none !important}
+      .preview{border:none !important;background:#fff}
       .preview-body{padding:0;background:#fff}
-      .sheet{border:none;padding:0}
-      .image-card img{height:190px}
-      th,td{font-size:11px;padding:8px}
+      .sheet{border:none;border-radius:0}
+      .hero-grid,.content{padding-left:0;padding-right:0}
+      .sheet-header{border-radius:0;break-inside:avoid}
+      .hero-card,.section,.financial-section,.bank-card,.footer-strip{break-inside:avoid;page-break-inside:avoid}
+      .bank-grid{break-before:auto}
+      .financial-section{break-before:auto}
+      .footer-strip{break-before:avoid}
+      .metrics{gap:8px}
       .metric strong{font-size:18px}
-      @page{size:A4;margin:12mm}
+      .detail-grid{gap:6px 14px}
+      .detail{padding:6px 0}
+      .detail .label,.detail strong,th,td,.bank-table td,.footer-note p,.meta-card p,.plan-card p,.note-card p{font-size:11px}
+      .section-title{font-size:11px;margin-bottom:8px}
+      .sheet-title{font-size:28px}
+      .sheet-sub{font-size:12px}
+      .summary-box strong{font-size:13px}
+      .hero-card{min-height:175px}
+      .hero-card img{height:100%;min-height:175px}
+      .hero-label{font-size:10px;padding:6px 10px}
+      .plan-ribbon{font-size:16px}
+      .bank-logo{height:40px;font-size:18px}
+      .pay-badge{min-height:28px;font-size:9px;min-width:56px;padding:5px 8px}
+      @page{size:A4;margin:9mm}
     }
   </style>
 </head>
@@ -162,10 +195,10 @@
         <img src="assets/logo-arennea.jpg" alt="Logo Arennea">
         <div>
           <h1>Cotizador Arennea</h1>
-          <p>Herramienta pública para generar cotizaciones y, si se desea, corrida financiera.</p>
+          <p>Herramienta pública para generar cotizaciones con opción de corrida financiera e impresión a color.</p>
         </div>
       </div>
-      <div class="top-note">Los importes capturados son de apoyo comercial. La referencia oficial seguirá siendo la cotización emitida por CRM Manivela o por la institución correspondiente.</div>
+      <div class="top-note">El PDF se diseñó para verse mejor al imprimir, manteniendo color, jerarquía visual y ambas referencias bancarias dentro de la misma cotización.</div>
     </div>
   </header>
 
@@ -174,7 +207,7 @@
       <div class="editor-head">
         <span class="eyebrow">Editor de cotización</span>
         <h2>Captura de datos</h2>
-        <p>El sistema actualiza automáticamente los importes principales y puede mostrar u ocultar la corrida financiera.</p>
+        <p>El sistema actualiza automáticamente el resumen económico y puede mostrar u ocultar la corrida financiera.</p>
       </div>
       <div class="form-wrap">
         <div class="group-title">Cliente y operación</div>
@@ -184,45 +217,45 @@
           <div class="field"><label for="unidad">Unidad</label><input id="unidad" placeholder="Ej. 674 Etapa 2"></div>
           <div class="field"><label for="superficie">Superficie (m²)</label><input type="number" min="0" step="0.01" id="superficie" placeholder="0.00"></div>
           <div class="field"><label for="precioM2">Precio por m² (MXN)</label><input type="number" min="0" step="0.01" id="precioM2" placeholder="0.00"></div>
-          <div class="field"><label for="precioListaManual">Precio de lista (automático)</label><input type="text" id="precioListaManual" readonly></div>
+          <div class="field"><label for="precioListaAuto">Precio de lista (automático)</label><input id="precioListaAuto" readonly></div>
         </div>
 
         <div class="group-title">Descuentos y apartado</div>
         <div class="form-grid">
           <div class="field"><label for="descuento">Descuento base (%)</label><input type="number" min="0" max="100" step="0.01" id="descuento" value="0"></div>
           <div class="field"><label for="apartado">Apartado (MXN)</label><input type="number" min="0" step="0.01" id="apartado" value="0"></div>
-          <div class="field full"><label for="descuentoEspecial">Descuento especial (MXN)</label><input type="number" min="0" step="0.01" id="descuentoEspecial" value="0"><p class="hint">Este monto se suma al descuento base para obtener el descuento total.</p></div>
+          <div class="field full"><label for="descuentoEspecial">Descuento especial (MXN)</label><input type="number" min="0" step="0.01" id="descuentoEspecial" value="0"><p class="hint">Se suma al descuento base para obtener el descuento total aplicado.</p></div>
         </div>
 
         <div class="group-title">Enganche y financiamiento</div>
         <div class="form-grid">
-          <div class="field full">
-            <label for="modalidad">Modalidad de enganche</label>
+          <div class="field full"><label for="modalidad">Modalidad de enganche</label>
             <select id="modalidad">
               <option value="contado">Enganche de contado (20%)</option>
               <option value="10-10">Diferido en dos pagos: 10% + 10%</option>
               <option value="15-5">Diferido en dos pagos: 15% + 5%</option>
             </select>
-            <p class="hint">Las mensualidades inician en el mes 2. Si hay segundo enganche, ese pago también se refleja en el mes 2.</p>
+            <p class="hint">Las mensualidades inician en el mes 2. Si existe segundo enganche, también se refleja en el mes 2.</p>
           </div>
-          <div class="field"><label for="mesesEnganche">Meses de enganche (automático)</label><input type="number" id="mesesEnganche" readonly></div>
+          <div class="field"><label for="mesesEnganche">Meses de enganche (automático)</label><input id="mesesEnganche" readonly></div>
           <div class="field"><label for="meses">Mensualidades</label><input type="number" min="1" step="1" id="meses" value="48"></div>
-          <div class="field"><label for="primerApellido">Primer apellido para referencia bancaria</label><input id="primerApellido" placeholder="Ej. Hernández"></div>
-          <div class="field full"><label for="plan">Plan de pago / promoción</label><textarea id="plan" placeholder="Ej. Promoción Octubre • 48 mensualidades • 5% de descuento"></textarea></div>
+          <div class="field"><label for="primerApellido">Primer apellido para referencia</label><input id="primerApellido" placeholder="Ej. Hernández"></div>
+          <div class="field full"><label for="plan">Plan de pago / promoción</label><textarea id="plan" placeholder="Ej. Promoción Octubre · 48 mensualidades · 5% de descuento"></textarea></div>
           <div class="field full">
             <div class="toggle">
               <input type="checkbox" id="mostrarCorrida" checked>
               <div>
                 <label for="mostrarCorrida" style="font-size:14px">Mostrar corrida financiera en la cotización</label>
-                <p class="hint">Si se desactiva, la cotización seguirá mostrando el resumen económico y las referencias bancarias.</p>
+                <p class="hint">Si se desactiva, el documento mostrará únicamente el resumen económico, la nota legal y las referencias bancarias.</p>
               </div>
             </div>
           </div>
         </div>
 
         <div class="badge-row">
-          <span class="badge">Cálculo automático</span>
-          <span class="badge">Dos referencias bancarias</span>
+          <span class="badge">PDF con color</span>
+          <span class="badge">Ambos bancos visibles</span>
+          <span class="badge">Imágenes integradas</span>
           <span class="badge">Corrida opcional</span>
         </div>
 
@@ -230,7 +263,7 @@
           <button class="btn-primary" type="button" onclick="window.print()">Imprimir / Guardar PDF</button>
           <button class="btn-secondary" type="button" onclick="limpiarDatos()">Limpiar</button>
         </div>
-        <p class="small-note">Tip: para conservar el diseño al imprimir en PDF, activa la opción <strong>“gráficos de fondo”</strong> en tu navegador.</p>
+        <p class="small-note">Al guardar en PDF, procura activar <strong>“gráficos de fondo”</strong> en la ventana de impresión para respetar el diseño a color.</p>
       </div>
     </aside>
 
@@ -238,87 +271,96 @@
       <div class="preview-head hidden-print">
         <div>
           <span class="eyebrow">Vista previa</span>
-          <h2>Cotización</h2>
-          <p>Diseño actualizado con imágenes limpias, resumen financiero y ambas referencias de pago.</p>
+          <h2>Cotización rediseñada</h2>
+          <p>Composición más limpia para impresión: logo visible, imágenes completas y una maquetación más presentable.</p>
         </div>
-        <div class="small-note">La página ya no utiliza un bloque interno de scroll para la corrida; el desplazamiento ahora es el natural del navegador.</div>
+        <div class="small-note">La versión PDF sin corrida debe verse más compacta y evitar páginas vacías o bloques desordenados.</div>
       </div>
+
       <div class="preview-body">
-        <div class="image-strip">
-          <div class="image-card"><img src="assets/hero.jpg" alt="Arennea fachada"></div>
-          <div class="image-card"><img src="assets/masterplan.jpg" alt="Master plan Arennea"></div>
-        </div>
-
-        <div class="summary-grid">
-          <div class="metric"><span>Precio de lista</span><strong id="rLista"></strong></div>
-          <div class="metric"><span>Descuento total</span><strong id="rDescTotal"></strong></div>
-          <div class="metric highlight"><span>Precio final</span><strong id="rFinal"></strong></div>
-          <div class="metric"><span>Total a financiar</span><strong id="rFinanciar"></strong></div>
-        </div>
-
         <article class="sheet">
-          <div class="quote-header">
-            <div>
-              <h3 class="quote-title">Cotización preliminar</h3>
-              <p class="quote-subline">Propuesta económica de referencia con esquema de enganche, financiamiento y referencias bancarias de pago.</p>
+          <header class="sheet-header">
+            <div class="sheet-brand">
+              <div class="logo-wrap"><img src="assets/logo-arennea.jpg" alt="Logo Arennea"></div>
+              <div>
+                <h1 class="sheet-title">Cotización preliminar</h1>
+                <p class="sheet-sub">Propuesta económica de referencia con esquema de enganche, financiamiento y referencias bancarias para pago.</p>
+              </div>
             </div>
-            <div class="folio">
-              <small>Resumen</small>
-              <strong id="folioCliente">Sin cliente</strong>
-              <span id="folioUnidad">Unidad: —</span>
-              <span id="folioFecha">Emitida el —</span>
+            <div class="sheet-summary">
+              <div class="summary-box"><span>Cliente</span><strong id="sumCliente">Sin cliente</strong></div>
+              <div class="summary-box"><span>Unidad</span><strong id="sumUnidad">—</strong></div>
+              <div class="summary-box"><span>Asesor</span><strong id="sumAsesor">—</strong></div>
+              <div class="summary-box"><span>Emitida el</span><strong id="sumFecha">—</strong></div>
             </div>
-          </div>
+          </header>
 
-          <div class="section-title">Datos generales</div>
-          <div class="detail-grid" id="detailGrid"></div>
-
-          <div class="info-grid">
-            <div class="card">
-              <div class="section-title" style="margin-top:0">Plan de pago</div>
-              <span class="plan-ribbon" id="rPlan">Sin especificar</span>
-              <p id="planSummary"></p>
+          <div class="hero-grid">
+            <div class="hero-card">
+              <img src="assets/hero.jpg" alt="Fachada Arennea">
+              <div class="hero-label">Fachada / acceso principal</div>
             </div>
-            <div class="card">
-              <div class="section-title" style="margin-top:0">Aclaración importante</div>
-              <p>La presente cotización tiene carácter <strong>preliminar, de prueba y/o alternativo</strong>. Los costos, precios, promociones, disponibilidad, condiciones comerciales, referencias de cobro y montos definitivos aplicables serán únicamente los establecidos en la <strong>cotización emitida por el CRM Manivela</strong> o, en su caso, por la <strong>institución o área correspondiente</strong>.</p>
-            </div>
-          </div>
-
-          <div class="section-title">Referencias bancarias para pago</div>
-          <div class="bank-grid" id="bankGrid"></div>
-
-          <div class="financial" id="financialSection">
-            <div class="section-title">Corrida financiera</div>
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Mes</th>
-                    <th>Concepto</th>
-                    <th class="amount">Importe del mes</th>
-                    <th class="amount">Acumulado</th>
-                  </tr>
-                </thead>
-                <tbody id="schedule"></tbody>
-              </table>
+            <div class="hero-card">
+              <img src="assets/masterplan.jpg" alt="Master plan Arennea">
+              <div class="hero-label">Master plan del desarrollo</div>
             </div>
           </div>
 
-          <div class="footer-note">
-            <strong>Nota comercial:</strong> Esta propuesta se emite exclusivamente como apoyo para revisión preliminar. Cualquier actualización en precios, descuentos, promociones, disponibilidad, formas de pago o vigencia deberá confirmarse en el sistema oficial aplicable antes de formalizar la operación.
-          </div>
-
-          <div class="stamp">
-            <div class="meta">
-              <strong>Asesor:</strong> <span id="metaAsesor">—</span><br>
-              <strong>Unidad:</strong> <span id="metaUnidad">—</span><br>
-              <strong>Documento generado:</strong> <span id="metaFecha">—</span>
+          <div class="content">
+            <div class="metrics">
+              <div class="metric"><span>Precio de lista</span><strong id="rLista"></strong></div>
+              <div class="metric"><span>Descuento total</span><strong id="rDescTotal"></strong></div>
+              <div class="metric highlight"><span>Precio final</span><strong id="rFinal"></strong></div>
+              <div class="metric"><span>Total a financiar</span><strong id="rFinanciar"></strong></div>
             </div>
-            <div class="meta" style="text-align:right">
-              <strong>Esquema de enganche:</strong> <span id="metaModalidad">—</span><br>
-              <strong>Mensualidades:</strong> <span id="metaMensualidades">—</span><br>
-              <strong>Corrida financiera:</strong> <span id="metaCorrida">Visible</span>
+
+            <section class="section">
+              <h3 class="section-title">Datos generales</h3>
+              <div class="detail-grid" id="detailGrid"></div>
+            </section>
+
+            <div class="two-col">
+              <section class="plan-card">
+                <h3 class="section-title" style="margin-top:0">Plan de pago</h3>
+                <span class="plan-ribbon" id="rPlan">Sin especificar</span>
+                <p id="planSummary"></p>
+              </section>
+              <section class="note-card">
+                <h3 class="section-title" style="margin-top:0">Aclaración importante</h3>
+                <p>La presente cotización tiene carácter <strong>preliminar, de prueba y/o alternativo</strong>. Los costos, precios, promociones, disponibilidad, condiciones comerciales, referencias de cobro y montos definitivos aplicables serán únicamente los establecidos en la <strong>cotización emitida por el CRM Manivela</strong> o, en su caso, por la <strong>institución o área correspondiente</strong>.</p>
+              </section>
+            </div>
+
+            <section class="section" style="margin-top:14px">
+              <h3 class="section-title">Referencias bancarias para pago</h3>
+              <div class="bank-grid" id="bankGrid"></div>
+            </section>
+
+            <section class="financial-section" id="financialSection">
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Mes</th>
+                      <th>Concepto</th>
+                      <th class="amount">Importe del mes</th>
+                      <th class="amount">Acumulado</th>
+                    </tr>
+                  </thead>
+                  <tbody id="schedule"></tbody>
+                </table>
+              </div>
+            </section>
+
+            <div class="footer-strip">
+              <section class="footer-note">
+                <p><strong>Nota comercial:</strong> Esta propuesta se emite exclusivamente como apoyo para revisión preliminar. Cualquier actualización en precios, descuentos, promociones, disponibilidad, formas de pago o vigencia deberá confirmarse en el sistema oficial aplicable antes de formalizar la operación.</p>
+              </section>
+              <section class="meta-card">
+                <p><strong>Esquema de enganche:</strong> <span id="metaModalidad">—</span><br>
+                <strong>Mensualidades:</strong> <span id="metaMensualidades">—</span><br>
+                <strong>Corrida financiera:</strong> <span id="metaCorrida">Visible</span></p>
+              </section>
             </div>
           </div>
         </article>
@@ -329,232 +371,178 @@
   <script>
     const $ = id => document.getElementById(id);
     const INPUT_IDS = ['cliente','asesor','unidad','superficie','precioM2','descuento','descuentoEspecial','apartado','modalidad','meses','primerApellido','plan','mostrarCorrida'];
-    const STORAGE_KEY = 'cotizador_arennea_v3';
+    const STORAGE_KEY = 'cotizador_arennea_v4';
 
     const BANKS = [
       {
-        id:'banregio',
-        label:'Banregio',
-        logoText:'BANREGIO',
-        logoClass:'banregio',
+        logoText:'BANREGIO', logoClass:'banregio',
         accountName:'Santa Clara Privada Residencial S.A.P.I. de C.V.',
-        account:'251947850019',
-        clabe:'058910000152023239',
+        account:'251947850019', clabe:'058910000152023239',
         conceptPrefix:'LT02 ARENNEA MS01',
         badges:[['spei','SPEI'],['window','Ventanilla'],['seven','7-ELEVEN'],['visa','VISA'],['mc','Mastercard'],['amex','AMEX'],['clip','Clip']]
       },
       {
-        id:'banorte',
-        label:'Banorte',
-        logoText:'BANORTE',
-        logoClass:'banorte',
+        logoText:'BANORTE', logoClass:'banorte',
         accountName:'Santa Clara Privada Residencial S.A.P.I. de C.V.',
-        account:'1275868586',
-        clabe:'072 910 01275868586 7',
+        account:'1275868586', clabe:'072 910 01275868586 7',
         conceptPrefix:'LT01 ARENNEA MS01',
         badges:[['spei','SPEI'],['window','Ventanilla'],['seven','7-ELEVEN'],['visa','VISA'],['mc','Mastercard'],['amex','AMEX']]
       }
     ];
 
     function num(id){ return Math.max(0, Number($(id).value) || 0); }
+    function round2(n){ return Math.round((Number(n)+Number.EPSILON)*100)/100; }
     function money(n){ return new Intl.NumberFormat('es-MX',{style:'currency',currency:'MXN'}).format(round2(n)); }
     function number(n){ return new Intl.NumberFormat('es-MX',{maximumFractionDigits:2}).format(round2(n)); }
-    function round2(n){ return Math.round((Number(n)+Number.EPSILON)*100)/100; }
     function esc(s){ return String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
     function today(){ return new Date().toLocaleDateString('es-MX',{year:'numeric',month:'long',day:'numeric'}); }
 
     function modalidadData(){
       const m = $('modalidad').value;
-      if(m === 'contado') return {months:1, p1:0.20, p2:0, label:'Contado 20%'};
-      if(m === '10-10') return {months:2, p1:0.10, p2:0.10, label:'Diferido 10% + 10%'};
-      return {months:2, p1:0.15, p2:0.05, label:'Diferido 15% + 5%'};
+      if(m === 'contado') return {months:1,p1:0.20,p2:0,label:'Contado 20%'};
+      if(m === '10-10') return {months:2,p1:0.10,p2:0.10,label:'Diferido 10% + 10%'};
+      return {months:2,p1:0.15,p2:0.05,label:'Diferido 15% + 5%'};
     }
 
     function buildCalc(){
-      const area = num('superficie');
-      const priceM2 = num('precioM2');
-      const discountPct = Math.min(100, num('descuento'));
-      const specialDiscount = num('descuentoEspecial');
-      const reservation = num('apartado');
-      const installments = Math.max(1, Math.floor(num('meses')) || 1);
-      const mode = modalidadData();
-
-      const listPrice = round2(area * priceM2);
-      const baseDiscount = round2(listPrice * discountPct / 100);
-      const totalDiscount = Math.min(listPrice, round2(baseDiscount + specialDiscount));
-      const finalPrice = Math.max(0, round2(listPrice - totalDiscount));
-      const downTotal = round2(finalPrice * 0.20);
-      const firstDownGross = round2(finalPrice * mode.p1);
-      const secondDownGross = round2(finalPrice * mode.p2);
-      let remainingReservation = reservation;
-      const firstDownNet = Math.max(0, round2(firstDownGross - remainingReservation));
-      remainingReservation = Math.max(0, round2(remainingReservation - firstDownGross));
-      const secondDownNet = Math.max(0, round2(secondDownGross - remainingReservation));
-      const balanceAfterReservation = Math.max(0, round2(finalPrice - reservation));
-      const financedTotal = Math.max(0, round2(finalPrice - downTotal));
-      const monthly = installments ? round2(financedTotal / installments) : 0;
+      const area=num('superficie');
+      const priceM2=num('precioM2');
+      const discountPct=Math.min(100,num('descuento'));
+      const specialDiscount=num('descuentoEspecial');
+      const reservation=num('apartado');
+      const installments=Math.max(1,Math.floor(num('meses'))||1);
+      const mode=modalidadData();
+      const listPrice=round2(area*priceM2);
+      const baseDiscount=round2(listPrice*discountPct/100);
+      const totalDiscount=Math.min(listPrice,round2(baseDiscount+specialDiscount));
+      const finalPrice=Math.max(0,round2(listPrice-totalDiscount));
+      const downTotal=round2(finalPrice*0.20);
+      const firstDownGross=round2(finalPrice*mode.p1);
+      const secondDownGross=round2(finalPrice*mode.p2);
+      let remainingReservation=reservation;
+      const firstDownNet=Math.max(0,round2(firstDownGross-remainingReservation));
+      remainingReservation=Math.max(0,round2(remainingReservation-firstDownGross));
+      const secondDownNet=Math.max(0,round2(secondDownGross-remainingReservation));
+      const balanceAfterReservation=Math.max(0,round2(finalPrice-reservation));
+      const financedTotal=Math.max(0,round2(finalPrice-downTotal));
+      const monthly=installments?round2(financedTotal/installments):0;
       return {area,priceM2,discountPct,specialDiscount,reservation,installments,mode,listPrice,baseDiscount,totalDiscount,finalPrice,downTotal,firstDownGross,secondDownGross,firstDownNet,secondDownNet,balanceAfterReservation,financedTotal,monthly};
     }
 
     function render(){
-      const c = buildCalc();
-      const cliente = $('cliente').value.trim() || 'Sin cliente';
-      const asesor = $('asesor').value.trim() || '—';
-      const unidad = $('unidad').value.trim() || '—';
-      const apellido = ($('primerApellido').value.trim().toUpperCase()) || 'APELLIDO';
-      const plan = $('plan').value.trim() || 'Sin especificar';
-      const showCorrida = $('mostrarCorrida').checked;
+      const c=buildCalc();
+      const cliente=$('cliente').value.trim()||'Sin cliente';
+      const asesor=$('asesor').value.trim()||'—';
+      const unidad=$('unidad').value.trim()||'—';
+      const apellido=($('primerApellido').value.trim().toUpperCase())||'APELLIDO';
+      const plan=$('plan').value.trim()||'Sin especificar';
+      const showCorrida=$('mostrarCorrida').checked;
 
-      $('mesesEnganche').value = c.mode.months;
-      $('precioListaManual').value = money(c.listPrice);
-      $('rLista').textContent = money(c.listPrice);
-      $('rDescTotal').textContent = money(c.totalDiscount);
-      $('rFinal').textContent = money(c.finalPrice);
-      $('rFinanciar').textContent = money(c.financedTotal);
+      $('mesesEnganche').value=c.mode.months;
+      $('precioListaAuto').value=money(c.listPrice);
 
-      $('folioCliente').textContent = cliente;
-      $('folioUnidad').textContent = `Unidad: ${unidad}`;
-      $('folioFecha').textContent = `Emitida el ${today()}`;
+      $('sumCliente').textContent=cliente;
+      $('sumUnidad').textContent=unidad;
+      $('sumAsesor').textContent=asesor;
+      $('sumFecha').textContent=today();
 
-      const details = [
-        ['Nombre del cliente', cliente],
-        ['Asesor', asesor],
-        ['Unidad', unidad],
-        ['Superficie total', `${number(c.area)} m²`],
-        ['Precio por m²', money(c.priceM2)],
-        ['Precio de lista', money(c.listPrice)],
-        ['Descuento base', `${number(c.discountPct)}% (${money(c.baseDiscount)})`],
-        ['Descuento especial', money(c.specialDiscount)],
-        ['Descuento total', money(c.totalDiscount)],
-        ['Precio final', money(c.finalPrice)],
-        ['Apartado', money(c.reservation)],
-        ['Saldo tras apartado', money(c.balanceAfterReservation)],
-        ['Enganche total', `${money(c.downTotal)} (20%)`],
-        ['Primer pago de enganche', money(c.firstDownGross)],
-        ['Segundo pago de enganche', c.secondDownGross ? money(c.secondDownGross) : 'No aplica'],
-        ['Total a financiar', money(c.financedTotal)],
-        ['Mensualidades', String(c.installments)],
-        ['Meses de enganche', String(c.mode.months)],
-        ['Mensualidad de referencia', money(c.monthly)]
+      $('rLista').textContent=money(c.listPrice);
+      $('rDescTotal').textContent=money(c.totalDiscount);
+      $('rFinal').textContent=money(c.finalPrice);
+      $('rFinanciar').textContent=money(c.financedTotal);
+
+      const details=[
+        ['Nombre del cliente',cliente],['Asesor',asesor],['Unidad',unidad],['Superficie total',`${number(c.area)} m²`],
+        ['Precio por m²',money(c.priceM2)],['Precio de lista',money(c.listPrice)],['Descuento base',`${number(c.discountPct)}% (${money(c.baseDiscount)})`],['Descuento especial',money(c.specialDiscount)],
+        ['Descuento total',money(c.totalDiscount)],['Precio final',money(c.finalPrice)],['Apartado',money(c.reservation)],['Saldo tras apartado',money(c.balanceAfterReservation)],
+        ['Enganche total',`${money(c.downTotal)} (20%)`],['Primer pago de enganche',money(c.firstDownGross)],['Segundo pago de enganche',c.secondDownGross?money(c.secondDownGross):'No aplica'],['Total a financiar',money(c.financedTotal)],
+        ['Mensualidades',String(c.installments)],['Meses de enganche',String(c.mode.months)],['Mensualidad de referencia',money(c.monthly)]
       ];
-      $('detailGrid').innerHTML = details.map(([a,b]) => `<div class="detail"><span class="label">${esc(a)}</span><strong>${esc(b)}</strong></div>`).join('');
+      $('detailGrid').innerHTML=details.map(([a,b])=>`<div class="detail"><span class="label">${esc(a)}</span><strong>${esc(b)}</strong></div>`).join('');
 
-      $('rPlan').textContent = plan;
-      $('planSummary').textContent = `Esquema ${c.mode.label}. El apartado se aplica al primer pago de enganche; las mensualidades inician en el mes 2${c.secondDownGross ? ' y el segundo enganche también se refleja en ese mes.' : '.'}`;
+      $('rPlan').textContent=plan;
+      $('planSummary').textContent=`Esquema ${c.mode.label}. El apartado se aplica al primer pago de enganche; las mensualidades inician en el mes 2${c.secondDownGross?' y el segundo enganche también se refleja en ese mes.':'.'}`;
 
-      renderBanks(apellido);
-      renderSchedule(c, showCorrida);
-
-      $('metaAsesor').textContent = asesor;
-      $('metaUnidad').textContent = unidad;
-      $('metaFecha').textContent = today();
-      $('metaModalidad').textContent = c.mode.label;
-      $('metaMensualidades').textContent = `${c.installments}`;
-      $('metaCorrida').textContent = showCorrida ? 'Visible' : 'Oculta';
-
-      saveState();
-    }
-
-    function renderBanks(apellido){
-      $('bankGrid').innerHTML = BANKS.map(bank => `
-        <div class="bank-card">
-          <div class="bank-header">
+      $('bankGrid').innerHTML=BANKS.map(bank=>`
+        <article class="bank-card">
+          <div class="bank-head">
             <div class="bank-logo ${bank.logoClass}">${bank.logoText}</div>
             <div class="bank-mini">Formas de pago: transferencia, SPEI y depósito en ventanilla.</div>
           </div>
-          <table class="bank-table">
-            <tbody>
-              <tr><td>Nombre</td><td>${esc(bank.accountName)}</td></tr>
-              <tr><td>Número de cuenta</td><td>${esc(bank.account)}</td></tr>
-              <tr><td>CLABE</td><td>${esc(bank.clabe)}</td></tr>
-              <tr><td>Concepto</td><td>LT + No. de terreno + Desarrollo + No. de mensualidad + Primer apellido</td></tr>
-            </tbody>
-          </table>
+          <table class="bank-table"><tbody>
+            <tr><td>Nombre</td><td>${esc(bank.accountName)}</td></tr>
+            <tr><td>Núm. cuenta</td><td>${esc(bank.account)}</td></tr>
+            <tr><td>CLABE</td><td>${esc(bank.clabe)}</td></tr>
+            <tr><td>Concepto</td><td>LT + No. de terreno + Desarrollo + No. de mensualidad + Primer apellido</td></tr>
+          </tbody></table>
           <div class="bank-example"><strong>Ejemplo de referencia:</strong> ${esc(bank.conceptPrefix)} ${esc(apellido)}</div>
-          <div class="pay-badges">${bank.badges.map(([cls,txt]) => `<span class="pay-badge ${cls}">${esc(txt)}</span>`).join('')}</div>
-        </div>`).join('');
+          <div class="pay-badges">${bank.badges.map(([cls,txt])=>`<span class="pay-badge ${cls}">${esc(txt)}</span>`).join('')}</div>
+        </article>
+      `).join('');
+
+      renderSchedule(c,showCorrida);
+
+      $('metaModalidad').textContent=c.mode.label;
+      $('metaMensualidades').textContent=String(c.installments);
+      $('metaCorrida').textContent=showCorrida?'Visible':'Oculta';
+      saveState();
     }
 
-    function renderSchedule(c, visible){
-      const section = $('financialSection');
-      section.style.display = visible ? 'block' : 'none';
-      if(!visible){ $('schedule').innerHTML = ''; return; }
-
-      const rows = [];
-      let accumulated = 0;
-      const pushRow = (month, concept, amount, cls='') => {
-        amount = round2(amount);
-        accumulated = round2(accumulated + amount);
-        rows.push(`<tr class="${cls}"><td>${esc(month)}</td><td>${esc(concept)}</td><td class="amount">${money(amount)}</td><td class="amount">${money(accumulated)}</td></tr>`);
+    function renderSchedule(c,visible){
+      const section=$('financialSection');
+      section.style.display=visible?'block':'none';
+      if(!visible){ $('schedule').innerHTML=''; return; }
+      let accumulated=0;
+      const rows=[];
+      const add=(mes,concepto,importe,cls='')=>{
+        importe=round2(importe);
+        accumulated=round2(accumulated+importe);
+        rows.push(`<tr class="${cls}"><td>${esc(mes)}</td><td>${esc(concepto)}</td><td class="amount">${money(importe)}</td><td class="amount">${money(accumulated)}</td></tr>`);
       };
-
-      pushRow('0','Apartado',c.reservation,'month-special');
-      pushRow('1',`Primer pago de enganche (${Math.round(c.mode.p1*100)}%) menos apartado aplicado`,c.firstDownNet,'month-special');
-
-      if(c.mode.months === 2){
-        pushRow('2',`Segundo pago de enganche (${Math.round(c.mode.p2*100)}%) + mensualidad 1`, round2(c.secondDownNet + c.monthly),'month-special');
-        for(let i=2;i<=c.installments;i++){
-          const amount = i === c.installments ? lastMonthly(c, i) : c.monthly;
-          pushRow(String(i+1),`Mensualidad ${i}`, amount);
-        }
+      add('0','Apartado',c.reservation,'month-special');
+      add('1',`Primer pago de enganche (${Math.round(c.mode.p1*100)}%) menos apartado aplicado`,c.firstDownNet,'month-special');
+      if(c.mode.months===2){
+        add('2',`Segundo pago de enganche (${Math.round(c.mode.p2*100)}%) + mensualidad 1`,round2(c.secondDownNet+c.monthly),'month-special');
+        for(let i=2;i<=c.installments;i++) add(String(i+1),`Mensualidad ${i}`,i===c.installments?lastMonthly(c,i):c.monthly);
       }else{
-        pushRow('2','Mensualidad 1', c.monthly,'month-special');
-        for(let i=2;i<=c.installments;i++){
-          const amount = i === c.installments ? lastMonthly(c, i) : c.monthly;
-          pushRow(String(i+1),`Mensualidad ${i}`, amount);
-        }
+        add('2','Mensualidad 1',c.monthly,'month-special');
+        for(let i=2;i<=c.installments;i++) add(String(i+1),`Mensualidad ${i}`,i===c.installments?lastMonthly(c,i):c.monthly);
       }
-
-      const diff = round2(c.finalPrice - accumulated);
-      if(Math.abs(diff) >= 0.01){
-        accumulated = round2(accumulated + diff);
+      const diff=round2(c.finalPrice-accumulated);
+      if(Math.abs(diff)>=0.01){
+        accumulated=round2(accumulated+diff);
         rows.push(`<tr class="adjust-row"><td>Ajuste</td><td>Ajuste por redondeo de corrida financiera</td><td class="amount">${money(diff)}</td><td class="amount">${money(accumulated)}</td></tr>`);
       }
       rows.push(`<tr class="total-row"><td colspan="2">Total de la operación</td><td class="amount">${money(c.finalPrice)}</td><td class="amount">${money(c.finalPrice)}</td></tr>`);
-      $('schedule').innerHTML = rows.join('');
+      $('schedule').innerHTML=rows.join('');
     }
 
-    function lastMonthly(c, currentInstallment){
-      const previousCount = currentInstallment - 1;
-      const alreadyAssigned = round2(c.monthly * previousCount);
-      return round2(c.financedTotal - alreadyAssigned);
+    function lastMonthly(c,current){
+      const prev=current-1;
+      return round2(c.financedTotal-round2(c.monthly*prev));
     }
 
     function saveState(){
-      const state = {};
-      INPUT_IDS.forEach(id => state[id] = (id === 'mostrarCorrida' ? $(id).checked : $(id).value));
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      const state={};
+      INPUT_IDS.forEach(id=>state[id]=(id==='mostrarCorrida'?$(id).checked:$(id).value));
+      localStorage.setItem(STORAGE_KEY,JSON.stringify(state));
     }
-
     function loadState(){
       try{
-        const raw = localStorage.getItem(STORAGE_KEY);
-        if(!raw) return;
-        const state = JSON.parse(raw);
-        INPUT_IDS.forEach(id => {
-          if(state[id] === undefined) return;
-          if(id === 'mostrarCorrida') $(id).checked = !!state[id];
-          else $(id).value = state[id];
-        });
-      }catch(err){}
+        const raw=localStorage.getItem(STORAGE_KEY); if(!raw) return;
+        const state=JSON.parse(raw);
+        INPUT_IDS.forEach(id=>{ if(state[id]===undefined) return; if(id==='mostrarCorrida') $(id).checked=!!state[id]; else $(id).value=state[id]; });
+      }catch(e){}
     }
-
     function limpiarDatos(){
-      const defaults = {
-        cliente:'',asesor:'',unidad:'',superficie:'',precioM2:'',descuento:'0',descuentoEspecial:'0',apartado:'0',modalidad:'contado',meses:'48',primerApellido:'',plan:'',mostrarCorrida:true
-      };
-      Object.entries(defaults).forEach(([id,val]) => {
-        if(id === 'mostrarCorrida') $(id).checked = val;
-        else $(id).value = val;
-      });
+      const defaults={cliente:'',asesor:'',unidad:'',superficie:'',precioM2:'',descuento:'0',descuentoEspecial:'0',apartado:'0',modalidad:'contado',meses:'48',primerApellido:'',plan:'',mostrarCorrida:true};
+      Object.entries(defaults).forEach(([id,val])=>{ if(id==='mostrarCorrida') $(id).checked=val; else $(id).value=val; });
       render();
     }
 
-    INPUT_IDS.forEach(id => {
-      const el = $(id);
-      const ev = id === 'mostrarCorrida' ? 'change' : 'input';
-      el.addEventListener(ev, render);
-      if(ev !== 'change') el.addEventListener('change', render);
+    INPUT_IDS.forEach(id=>{
+      const el=$(id); const evt=id==='mostrarCorrida'?'change':'input';
+      el.addEventListener(evt,render); if(evt!=='change') el.addEventListener('change',render);
     });
 
     loadState();
