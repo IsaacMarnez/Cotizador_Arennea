@@ -322,10 +322,10 @@
         <div class="form-grid">
           <div class="field"><label for="descuento">Descuento base (%)</label><input type="number" min="0" max="15" step="0.01" id="descuento" value="0"></div>
           <div class="field"><label for="apartado">Apartado (MXN)</label><input type="number" min="0" step="0.01" id="apartado" value="0"></div>
-          <div class="field full"><label for="descuentoEspecial">Descuento especial (MXN)</label><input type="number" min="0" step="0.01" id="descuentoEspecial" value="0"><p class="hint">Se suma al descuento base, sin superar el límite global del 15% del precio de lista.</p></div>
+          <div class="field full"><label for="descuentoEspecial">Descuento especial (MXN)</label><input type="number" min="0" step="0.01" id="descuentoEspecial" value="0"><p class="hint">Se descuenta adicionalmente del precio de lista, después del descuento base en porcentaje.</p></div>
         </div>
 
-        <p class="hint" style="margin-top:12px;font-weight:700;color:#356f3b">Condiciones promocionales hasta el 31 de octubre de 2026: descuento máximo total 15% y plazo máximo 48 mensualidades.</p>
+        <p class="hint" style="margin-top:12px;font-weight:700;color:#356f3b">Condiciones promocionales vigentes hasta el 31 de octubre de 2026. Financiamiento de hasta 48 mensualidades.</p>
 
         <div class="group-title">Enganche y financiamiento</div>
         <div class="form-grid">
@@ -382,7 +382,7 @@
           <div class="sheet-top">
             <div class="sheet-logo-wrap"><img class="sheet-logo" src="assets/logo-arennea.jpg" alt="Logo Arennea"></div>
             <h1 class="sheet-title">Cotización preliminar</h1>
-            <p class="sheet-sub">Propuesta económica de referencia con esquema de enganche, financiamiento y referencias bancarias de pago. Promoción hasta el 31 de octubre de 2026: descuento máximo 15% y hasta 48 mensualidades.</p>
+            <p class="sheet-sub">Propuesta económica de referencia con esquema de enganche, financiamiento y referencias bancarias de pago. Promoción hasta el 31 de octubre de 2026, con financiamiento de hasta 48 mensualidades.</p>
 
             <div class="glass-grid">
               <div class="glass-card"><span>Cliente</span><strong id="sumCliente">Sin cliente</strong></div>
@@ -510,7 +510,7 @@
       const mode=modalidadData();
       const listPrice=round2(area*priceM2);
       const baseDiscount=round2(listPrice*discountPct/100);
-      const totalDiscount=Math.min(round2(listPrice*0.15),round2(baseDiscount+specialDiscount));
+      const totalDiscount=Math.min(listPrice,round2(baseDiscount+specialDiscount));
       const finalPrice=Math.max(0,round2(listPrice-totalDiscount));
       const downTotal=round2(finalPrice*0.20);
       const firstDownGross=round2(finalPrice*mode.p1);
@@ -526,14 +526,14 @@
     }
 
     function render(){
-      // Enforce commercial caps, including previously saved values and special discounts.
+      // Enforce commercial caps, including previously saved values; the extra MXN discount is independent from the percentage cap.
       const d=$('descuento');
       if(d.value!=='' && Number(d.value)>15) d.value='15';
       const m=$('meses');
       if(m.value!=='' && Number(m.value)>48) m.value='48';
-      const allowedSpecial=Math.max(0,round2(num('superficie')*num('precioM2')*0.15 - round2(num('superficie')*num('precioM2')*Math.min(15,num('descuento'))/100)));
+      const allowedSpecial=Math.max(0,round2(num('superficie')*num('precioM2') - round2(num('superficie')*num('precioM2')*Math.min(15,num('descuento'))/100)));
       const sp=$('descuentoEspecial');
-      if(sp.value!=='' && num('descuentoEspecial')>allowedSpecial) sp.value=String(allowedSpecial);
+      if(sp.value!=='' && num('superficie')>0 && num('precioM2')>0 && num('descuentoEspecial')>allowedSpecial) sp.value=String(allowedSpecial);
       const c=buildCalc();
       const cliente=$('cliente').value.trim()||'Sin cliente';
       const asesor=$('asesor').value.trim()||'—';
